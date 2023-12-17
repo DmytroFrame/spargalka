@@ -1,8 +1,6 @@
-const AVAILBLE_KEYS = ["f", "F", "ф", "Ф"];
 const MODAL_WINDOW = document.getElementById("myModal");
-const IFRAME = document.getElementById('iframe')
-
-const url = "https://docs.google.com/document/d/1qHk8uW5toQm1usNI9lzjGoUpwZ4qATsUkXTQGDvoeLY/edit?usp=sharing"
+const IFRAME = document.getElementById("iframe");
+const AVAILBLE_KEYS = ["f", "F", "ф", "Ф"];
 
 document.addEventListener("keydown", function (event) {
   if (AVAILBLE_KEYS.includes(event.key)) {
@@ -25,8 +23,10 @@ function closeModal() {
 }
 
 async function setIframeSrc() {
-  
+  const req = await fetch(
+    "https://raw.githubusercontent.com/DmytroFrame/spargalka/master/iframe-url.txt"
+  );
+  IFRAME.src = await req.text();
 }
 
-
-IFRAME.src = url
+setIframeSrc();
