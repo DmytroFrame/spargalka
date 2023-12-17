@@ -1,6 +1,6 @@
 const MODAL_WINDOW = document.getElementById("myModal");
 const IFRAME = document.getElementById("iframe");
-const AVAILBLE_KEYS = ["f", "F", "ф", "Ф"];
+const AVAILBLE_KEYS = ["f", "F", "а", "А"];
 
 document.addEventListener("keydown", function (event) {
   if (AVAILBLE_KEYS.includes(event.key)) {
