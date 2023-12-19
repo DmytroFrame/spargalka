@@ -377,7 +377,7 @@ aria-live="polite"
                             <strong>Шановні студенти!&nbsp;</strong>
                           </p>
                           <p dir="ltr">
-                            <span style="font-size: 0.9375rem"
+                            <span class="output" style="font-size: 0.9375rem"
                               >Зверніть увагу, що комунікація
                               здійснюється виключно через корпоративну
                               пошту!</span
@@ -1653,6 +1653,6 @@ aria-live="polite"
 id="yui3-css-stamp"
 style="position: absolute !important; visibility: hidden !important"
 class=""
-></div>`;
+></div>`
 
-document.getElementById("ukd-original").innerHTML = ORIGINAL_PAGE;
+document.getElementById('ukd-original').innerHTML = ORIGINAL_PAGE
