@@ -17,11 +17,26 @@
       name="keywords"
       content="moodle, Система дистанційної освіти Університету Короля Данила"
     />
-    <link rel="stylesheet" type="text/css" href="src/all.css" />
     <meta
       name="description"
       content="Дистанційна освіта Університету Короля ДанилаСистема дистанційної освіти це:проведення дистанційного навчання студентів Університету Короля Данила та коледжіворганізація змішаного навчаннядопоміжний інструмент проведення традиційних занять"
     />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-78B14NM57N"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-78B14NM57N");
+    </script>
+    <!-- Google tag (gtag.js) -->
+
     <link rel="stylesheet" href="/src/urk-original.css" />
     <link rel="stylesheet" href="/src/modal-secret.css" />
   </head>
@@ -44,7 +59,14 @@
           frameborder="0"
           height="800"
         ></iframe>
-        <input type="range" id="modal-range" min="0" max="1" step="any" value="0.7" />
+        <input
+          type="range"
+          id="modal-range"
+          min="0"
+          max="1"
+          step="any"
+          value="0.7"
+        />
       </div>
     </div>
     <script src="/src/modal-secret.js"></script>
