@@ -1,32 +1,22 @@
-const output = document.querySelector('.output')
+import { getKeyFromClipBoardText } from '../src/application/answerPlacer'
+import { getValidationAnswer } from './domain/questionAnswer'
+import { findAnswerByKey } from '../src/domain/questionsAnswers'
+import { fetchData } from '../src/services/api'
+import { changeOutputText } from './ui/output'
 
-function getTextFromClipBoard() {
-  return navigator.clipboard.readText()
-}
+let GLOBAL_DATA = {}
 
-function changeOutputText(text) {
-  output.innerHTML = text
-}
-
-function doValidationForTextOutput(text) {
-  return (
-    text ||
-    'Зверніть увагу, що комунікація здійснюється виключно через корпоративну пошту!'
-  )
-}
-
-async function getAnswerFacade(question) {
-  const clipBoardText = await getTextFromClipBoard()
-  changeOutputText(clipBoardText)
-}
-
-document.addEventListener('visibilitychange', function () {
-  if (!document.hidden) {
-    const timeOut = setTimeout(async () => {
-      getAnswerFacade()
-      return window.clearTimeout(timeOut)
-    }, 100)
-  }
+fetchData().then((data) => {
+  GLOBAL_DATA = data
 })
 
-document.addEventListener('click', getAnswerFacade)
+document.addEventListener('keydown', async function () {
+  const key = await getKeyFromClipBoardText()
+  const validationAnswer = getValidationAnswer(
+    findAnswerByKey(GLOBAL_DATA, key),
+  )
+
+  changeOutputText(validationAnswer)
+})
+
+// document.addEventListener('click', getAnswerFacade)
